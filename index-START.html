@@ -69,6 +69,7 @@
       align-items: center;
     }
 
+    /* Transform/Translate Active/Inactive Panels */
     .panel > *:first-child { transform: translateY(-100%); }
     .panel.open-active > *:first-child { transform: translateY(0); }
     .panel > *:last-child { transform: translateY(100%); }
@@ -126,6 +127,16 @@
   </div>
 
   <script>
+
+    const panels = document.querySelectorAll('.panel');
+
+    function toggleOpen() {
+      this.classList.toggle('open');
+    }
+
+    // take panels, loop over each of them-> listen for click on each, then run toggle func when it is run
+    panels.forEach(panel => panel.addEventListener('click', toggleOpen));
+
   </script>
 
 
